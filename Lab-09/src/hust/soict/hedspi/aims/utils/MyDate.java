@@ -57,8 +57,7 @@ public class MyDate {
  	}
 	
 	public String print() {
-		return "The date is: " + 
-				this.day + "-" + this.month + "-" +this.year;
+		return   this.day + "-" + this.month + "-" +this.year;
 	}
 	
 	public void printInformat(){

@@ -72,7 +72,7 @@ public class Main extends Application {
 			});
 			
 			addTrackbtn.setOnAction(evt->{
-				SceneAddTrackM(CD);
+				SceneAddTrackM(anOrder,CD);
 				window.setScene(sceneAddTrack);
 			});
 			
@@ -229,7 +229,7 @@ public class Main extends Application {
 	}	
 	
 	//SceneAddTrack
-		public void SceneAddTrackM(CompactDisc CD) {
+		public void SceneAddTrackM(Order anOrder,CompactDisc CD) {
 			Label label1 = new Label("Enter some track:");
 			label1.setFont(new Font(STYLESHEET_CASPIAN, 20));
 			
@@ -260,9 +260,13 @@ public class Main extends Application {
 			});
 			
 			nextbtn.setOnAction(evt->{
+				try {
 				Track track = new Track(tfTittle.getText(), Integer.parseInt(tfLength.getText()));
 				CD.addTrack(track);
-				//SceneAddTrackM(CD);
+				}catch(Exception e) {
+					System.err.println(e);
+				};
+				window.setScene(sceneForCD);
 			});
 			
 			HBox cancel_remove = new HBox();
@@ -300,7 +304,7 @@ public class Main extends Application {
 					
 			nextbtn.setOnAction(evt->{
 				book.addAuthor(tfAuName.getText());
-					//SceneAddTrackM(CD);
+					window.setScene(sceneforBook);
 				});
 					
 			HBox cancel_remove = new HBox();
